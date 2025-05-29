@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Game</title>
+    <link rel="stylesheet" href="set-style.css" />
+  </head>
+  <body>
+    <!--------Game code ------------>
+    <div class="game">
+      <!-- Container for the gameboard -->
+      <div class="gameboard"></div>
+
+      <!-- Container for the details below the gameboard -->
+      <div class="game-details">
+        <div class="time-score-container">
+          <div class="timer-container">
+            <p>Time</p>
+            <p class="timer">1:30</p>
+          </div>
+          <div class="scoreboard">
+            <p>Score</p>
+            <p class="score">0</p>
+          </div>
+        </div>
+        <div class="start-reset-btn-container">
+          <button class="start-btn">Start</button>
+          <button class="reset-btn">Reset</button>
+        </div>
+      </div>
+      <script type="module" src="set-app.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="snake-style.css" />
+  </head>
+  <body onload="window.focus();">
+    <main>
+      <!-- Game Code -->
+      <div class="game-container">
+        <div class="gameboard"></div>
+
+        <!-- Bottom section info -->
+        <div class="game-info-section">
+          <div class="game-controlls-container">
+            <p class="controls-title">Game Controls</p>
+            <p><span>Start game</span>: "enter" key</p>
+            <p><span> Reset game</span>: R</p>
+            <p><span>Up</span>: W</p>
+            <p><span>Down</span>: S</p>
+            <p><span>Left</span>: A</p>
+            <p><span>Right</span>: D</p>
+          </div>
+
+          <div class="scoreboard-container">
+            <p class="score-title">Score</p>
+            <div class="score">0</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="snake-app.js"></script>
+  </body>
+</html>

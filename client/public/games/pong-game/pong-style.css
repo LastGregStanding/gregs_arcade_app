@@ -1,0 +1,99 @@
+/*************************************/
+/* CSS Reset */
+/*************************************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/*************************************/
+/* CSS End of Reset */
+/*************************************/
+
+* {
+  background-color: black;
+  color: white;
+}
+
+.game-container {
+  height: 60vh;
+  width: 600px;
+  margin: auto;
+}
+
+/********** Gameboard *************/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(204, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.cell {
+  background-color: black;
+}
+
+/********** Players *************/
+
+.playerOne,
+.playerTwo,
+.ball,
+.net {
+  background-color: white;
+}
+
+/********** Bottom Section Text *************/
+
+.bottom-section-text {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  font-size: 14px;
+}
+
+.player-controls {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.main-game-controls * {
+  margin-bottom: 10px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.winner {
+  font-size: 1.5rem;
+  color: green;
+  text-align: center;
+}

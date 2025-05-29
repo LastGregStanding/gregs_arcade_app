@@ -1,0 +1,216 @@
+/*************************************/
+/* CSS Reset */
+/*************************************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+  color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/*************************************/
+/* CSS End of Reset */
+/*************************************/
+
+* {
+  background-color: black;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.gameboard {
+  width: 800px;
+  margin: 5vh auto;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.cell {
+  background-color: white;
+  color: black;
+  border: black solid 1px;
+}
+
+/********* Dice **********/
+
+.dice_container {
+  /* outline: 3px solid yellow; */
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.dice {
+  /* outline: 3px solid green; */
+  height: 70%;
+  width: 50%;
+  margin: auto;
+}
+
+.dice_combo {
+  /* outline: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/********* End Dice **********/
+
+.keep {
+  border: 1px solid transparent;
+  background-color: green;
+  border-radius: 8px;
+  width: 40%;
+  margin: 10px auto;
+}
+
+.hover {
+  opacity: 0.5;
+}
+
+.turn_over {
+  font-size: 18px;
+  color: white;
+}
+
+.player_scorecards {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player_scorecards * {
+  margin: 5px 12%;
+  font-size: 14px;
+}
+
+/********* Upper Section **********/
+
+.upper_section_container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.upper_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 250px;
+  width: 250px;
+  width: 40%;
+}
+
+/********* Lower Section **********/
+
+.lower_section_container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lower_section {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 250px;
+  width: 250px;
+  width: 40%;
+}
+
+.turn_roll {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+/********* Game Buttons **********/
+
+.upper_btns {
+  margin-top: 4%;
+}
+
+.lower_btns,
+.zero_btns {
+  margin-top: 7.5%;
+}
+
+.choose_btn {
+  display: flex;
+  background-color: white;
+  border: red solid 1px;
+  margin-top: 12.5%;
+  color: black;
+  padding: 3.5px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.choose_btn2,
+.choose_btn_zero {
+  display: flex;
+  background-color: white;
+  border: red solid 1px;
+  color: black;
+  margin-top: 10%;
+  padding: 3px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+
+.choose_btn_zero {
+  background-color: red;
+  border: white solid 1px;
+  margin-top: 14%;
+}
+
+.reset_btn {
+  background-color: yellow;
+  border: 1px solid transparent;
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+  width: 10%;
+}
+
+.roll_btn {
+  height: 30px;
+  width: 70px;
+  background-color: red;
+  border-radius: 8px;
+  margin: 5px 0px;
+}
+
+button:hover {
+  cursor: pointer;
+  border: cyan solid 1px;
+}

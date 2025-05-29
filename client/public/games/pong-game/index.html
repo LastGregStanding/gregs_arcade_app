@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="pong-style.css" />
+  </head>
+  <body onload="window.focus();">
+    <!--------- Game code ----------->
+    <div class="game-container">
+      <div class="grid"></div>
+      <div class="bottom-section-text">
+        <div class="player-controls-container">
+          <p class="player-controls">Player 1 controls</p>
+          <p>Up = W</p>
+          <p>Down = S</p>
+        </div>
+        <div class="main-game-controls">
+          <p>Serve ball: "enter" key</p>
+          <p>Reset game: R</p>
+        </div>
+        <div class="player-controls-container">
+          <p class="player-controls">Player 2 controls</p>
+          <p>Up = O</p>
+          <p>Down = L</p>
+        </div>
+      </div>
+      <p class="winner"></p>
+    </div>
+    <script src="pong-app.js"></script>
+  </body>
+</html>

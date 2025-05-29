@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yahtzee</title>
+    <link rel="stylesheet" href="yahtzee-style.css" />
+  </head>
+  <body>
+
+    <!--------- Game code ---------->
+    <div class="gameboard">
+        <div class="dice_container">
+          <div class="dice_combo">
+            <img class="dice" id="dice_1" src="dice/dice-1.png" alt="Dice-1"></img>
+            <button class="keep" id="keep_1">Keep</button>
+          </div>
+          <div class="dice_combo">
+            <img class="dice" id="dice_2" src="dice/dice-1.png" alt="Dice-2"></img>
+            <button class="keep" id="keep_2">Keep</button>
+          </div>
+          <div class="dice_combo">
+            <img class="dice" id="dice_3" src="dice/dice-1.png" alt="Dice-3"></img>
+            <button class="keep" id="keep_3">Keep</button>
+          </div>
+          <div class="dice_combo">
+            <img class="dice" id="dice_4" src="dice/dice-1.png" alt="Dice-4"></img>
+            <button class="keep" id="keep_4">Keep</button>
+          </div>
+          <div class="dice_combo">
+            <img class="dice" id="dice_5" src="dice/dice-1.png" alt="Dice-5"></img>
+            <button class="keep" id="keep_5">Keep</button>
+          </div>
+        </div>
+        <button class="roll_btn">Roll</button>
+        <div class="turn">Player 1's Turn</div>
+        <div class="turn_over">Roll</div>
+      <div class="player_scorecards">
+        <div>Player 1 Scorecard</div>
+        <div>Player 2 Scorecard</div>
+      </div>
+     <div class="upper_section_container">
+        <div class="upper_section_1 upper_section"></div>
+        <div class="upper_btns"></div>
+        <div class="upper_section_2 upper_section"></div>
+      </div>
+      <div class="lower_section_container">
+        <div class="lower_section_1 lower_section"></div>
+        <div class="lower_btns"></div>
+        <div class="zero_btns"></div>
+        <div class="lower_section_2 lower_section"></div>
+      </div>
+      <button class="reset_btn">Reset Game</button>
+  </div>
+    <script src="yahtzee-app.js"></script>
+  </body>
+</html>

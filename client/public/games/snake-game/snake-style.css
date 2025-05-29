@@ -1,0 +1,124 @@
+/***********************/
+/* Reset              */
+/***********************/
+
+/* Reset margins and padding */
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* set up the body */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/**************************/
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  border: 3px solid white;
+}
+
+.cell {
+  padding: auto;
+  border: 1px solid transparent;
+}
+
+.game-container {
+  text-align: center;
+  width: 500px;
+  margin: auto;
+}
+
+.score {
+  font-size: 50px;
+}
+
+.score-title {
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+.snake {
+  background-color: rgb(47, 220, 223);
+  border: 1px solid white;
+}
+
+.erase {
+  background-color: black;
+  border: 1px solid transparent;
+}
+
+.food {
+  background-color: orange;
+  border: 1px solid white;
+}
+
+/********* Bottom Section Info ********/
+
+.game-info-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+.scoreboard-container {
+  margin-right: 10%;
+}
+
+/********* Game Controls ***********/
+
+.game-controlls-container {
+  text-align: center;
+}
+
+.controls-title {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+span {
+  font-weight: 800;
+}

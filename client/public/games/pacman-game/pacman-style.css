@@ -1,0 +1,170 @@
+/***********************/
+/*        Reset        */
+/***********************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/***********************/
+/*     End of Reset    */
+/***********************/
+
+* {
+  background: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.game-container {
+  width: 560px;
+  margin: auto;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/***** Gameboard Drawing *****/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  height: 560px;
+  width: 560px;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
+}
+
+.wall {
+  background-color: rgb(2, 2, 179);
+}
+
+.pellet,
+.power-pellet {
+  background-color: white;
+}
+
+.pellet,
+.power-pellet,
+.pacman {
+  border-radius: 10px;
+}
+
+.pellet {
+  border: black solid 7px;
+}
+
+.power-pellet,
+.pacman {
+  border: black solid 2px;
+}
+
+/******* Pacman ********/
+
+.pacman {
+  background-position: center;
+  background-size: cover;
+}
+
+/******** Ghost *******/
+
+.ghost {
+  background-position: center;
+  background-size: cover;
+  border-radius: 2px;
+  border: 0px;
+}
+
+.scared-ghost,
+.ghost {
+  background-color: black;
+}
+
+/******* Game info (below game) ******/
+
+.game-info-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lives-container {
+  display: flex;
+  width: 50%;
+}
+
+.level-container {
+  display: flex;
+  gap: 10px;
+  width: 50%;
+}
+
+.life-img {
+  width: 30px;
+}
+
+.hidden-img {
+  opacity: 0;
+}
+
+.button-container {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+/****** Game Controls *******/
+
+.game-controlls-container {
+  text-align: center;
+}
+
+.controls-title {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+span {
+  font-weight: 800;
+}

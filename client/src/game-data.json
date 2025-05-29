@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "Tetris",
+    "gamePath": "tetris-game",
+    "gameImg": "../../assets/images/game_pics/tetris_pic.png"
+  },
+  {
+    "id": 1,
+    "name": "Pacman",
+    "gamePath": "pacman-game",
+    "gameImg": "../../assets/images/game_pics/pacman_pic.png"
+  },
+  {
+    "id": 2,
+    "name": "Snake",
+    "gamePath": "snake-game",
+    "gameImg": "../../assets/images/game_pics/snake_pic.png"
+  },
+  {
+    "id": 3,
+    "name": "Pong",
+    "gamePath": "pong-game",
+    "gameImg": "../../assets/images/game_pics/pong_pic.png"
+  },
+  {
+    "id": 4,
+    "name": "Yahtzee",
+    "gamePath": "yahtzee-game",
+    "gameImg": "../../assets/images/game_pics/yahtzee_pic.png"
+  },
+  {
+    "id": 5,
+    "name": "Set",
+    "gamePath": "set-game",
+    "gameImg": "../../assets/images/game_pics/set_pic.png"
+  }
+]

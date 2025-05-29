@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacman</title>
+    <link rel="stylesheet" href="pacman-style.css" />
+  </head>
+
+  <body onload="window.focus();">
+    <!--------- Game code ----------->
+    <div class="game-container">
+      <div class="score-container">
+        <h2>Score:</h2>
+        <h2 class="score">0</h2>
+      </div>
+      <div class="grid"></div>
+
+      <div class="game-info-container">
+        <div class="lives-container">
+          <div>
+            <img
+              class="life-img life-1"
+              src="./pics/pacman/pacman-life.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="life-img life-2"
+              src="./pics/pacman/pacman-life.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="life-img life-3"
+              src="./pics/pacman/pacman-life.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="level-container">
+          <div>
+            <img
+              class="level-img hidden-img img-8"
+              src="./pics/levels/level-8.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-7"
+              src="./pics/levels/level-7.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-6"
+              src="./pics/levels/level-6.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-5"
+              src="./pics/levels/level-5.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-4"
+              src="./pics/levels/level-4.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-3"
+              src="./pics/levels/level-3.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="level-img hidden-img img-2"
+              src="./pics/levels/level-2.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img class="level-img" src="./pics/levels/level-1.png" alt="" />
+          </div>
+
+          <!-- <div class="current-level">1</div> -->
+        </div>
+      </div>
+      <div class="game-controlls-container">
+        <p class="controls-title">Game Controls</p>
+        <p><span>Start game</span>: "enter" key</p>
+        <p><span> Reset game</span>: R</p>
+        <p><span>Up</span>: W</p>
+        <p><span>Down</span>: S</p>
+        <p><span>Left</span>: A</p>
+        <p><span>Right</span>: D</p>
+      </div>
+    </div>
+  </body>
+
+  <script src="pacman-app.js"></script>
+</html>

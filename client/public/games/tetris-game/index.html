@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris</title>
+    <link rel="stylesheet" href="tetris-style.css" />
+  </head>
+  <body onload="window.focus();">
+    <!--------- Game code ---------->
+    <main>
+      <div class="game-container">
+        <p class="game-over-text text-hidden">GAME OVER!</p>
+        <div class="gameboard"></div>
+
+        <!-- Bottom page game information -->
+        <div class="scoreboard">
+          Score:
+          <div class="score">0</div>
+        </div>
+        <div class="game-controlls-container">
+          <p class="controls-title">Game Controls</p>
+          <p><span>Start game</span>: "enter" key</p>
+          <p><span> Reset game</span>: R</p>
+          <p><span>Rotate Shape</span>: Space bar</p>
+          <p><span>Move Shape</span>: A, S, D</p>
+        </div>
+      </div>
+    </main>
+    <script src="tetris-app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/*************************************/
+/* CSS Reset */
+/*************************************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+  color: white;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/*************************************/
+/* CSS End of Reset */
+/*************************************/
+
+main {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.game-container {
+  width: 80%;
+  height: 80%;
+  color: white;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 350px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.cell {
+  padding: auto;
+  border: rgb(255, 255, 255) solid 1px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 1rem;
+  font-size: 30px;
+  width: 180px;
+  margin-top: 10px;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+/********* Controls *********/
+
+.game-controlls-container {
+  text-align: center;
+}
+
+.controls-title {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+span {
+  font-weight: 800;
+}
+
+/******* Game over text *******/
+.game-over-text {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.text-hidden {
+  color: transparent;
+}

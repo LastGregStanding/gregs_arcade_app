@@ -1,0 +1,131 @@
+/*************************************/
+/* CSS Reset */
+/*************************************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/*************************************/
+/* CSS End of Reset */
+/*************************************/
+
+* {
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.game {
+  width: 650px;
+  margin: auto;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
+  height: 420px;
+  width: 640px;
+  margin: auto;
+}
+
+.cell,
+.back-of-card {
+  width: 120px;
+  height: 100px;
+}
+
+.cell {
+  background-size: cover;
+  background-position: center;
+  border: 8px solid transparent;
+  border-radius: 10px;
+}
+
+.back-of-card {
+  border: 1.5px solid white;
+  background-size: 115%;
+}
+
+.card-highlight {
+  border: 8px solid blue;
+  cursor: pointer;
+}
+
+.bad-match {
+  border: 5px solid red;
+}
+
+.selected {
+  border: 5px solid blue;
+}
+
+.game-details {
+  /* outline: 3px solid purple; */
+  display: flex;
+  margin-top: 15px;
+}
+
+.game-details > * {
+  flex: 1;
+  align-content: center;
+}
+
+.timer-container,
+.scoreboard {
+  display: flex;
+  margin-left: 60px;
+  font-size: 2rem;
+}
+
+.timer,
+.score {
+  margin-left: 20px;
+}
+
+.start-reset-btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  border: 3px solid white;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 3px solid rgb(109, 26, 160);
+  background-color: rgb(171, 151, 219);
+  color: black;
+}

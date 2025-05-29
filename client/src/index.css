@@ -1,0 +1,321 @@
+/************* CSS Reset ************/
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/************* End Reset ************/
+
+/**********************************************************/
+
+/********** Site General ***********/
+
+/* site colors
+ #abdfff, #072ef0, #0011ae, #0d0049
+*/
+
+.primary-site-container {
+  width: clamp(500px, 100%, 1300px);
+  margin: auto;
+}
+
+/************** Navbar ***************/
+
+.site-header-container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.site-header-container > * {
+  flex: 1;
+}
+
+.site-logo-container {
+  width: 30%;
+}
+
+.nav-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-name {
+  text-align: center;
+  color: rgb(81, 145, 255);
+  font-size: 22px;
+  font-weight: 800;
+  user-select: none;
+}
+
+.nav-dropdown {
+  opacity: 0;
+  position: absolute;
+  margin-top: 10px;
+  width: 100%;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+.nav-dropdown-container:hover .nav-dropdown {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.nav-dropdown td:hover {
+  background-color: rgba(0, 42, 250, 0.493);
+}
+
+.dropdown-table {
+  margin: auto;
+}
+
+.dropdown-table th,
+.dropdown-table td {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.navbar-button {
+  color: rgb(81, 145, 255);
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.navbar-button {
+  background-color: transparent;
+  border: 0px solid transparent;
+}
+
+.navbar-button:hover {
+  cursor: pointer;
+}
+
+/*************** Swiper  ******************/
+
+.swiper-wrapper {
+  padding: 50px 0px;
+}
+
+/************ Game collection **************/
+
+.game-slide-img {
+  border: 3px solid #abdfff;
+  border-radius: 23px;
+  overflow: hidden;
+}
+
+.game-slide-img:hover {
+  box-shadow: 0px 0px 30px #2146ff;
+  cursor: pointer;
+}
+
+.game-slide-title {
+  padding: 10px;
+  color: rgb(81, 145, 255);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.game-slide-img:hover + .game-slide-title {
+  color: #abdfff;
+}
+
+/************** Highscore table **************/
+
+.highscore-table-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: rgb(81, 145, 255);
+}
+
+.highscore-table,
+.user-stats-game-table {
+  box-shadow: 10px 20px 90px 20px rgba(40, 155, 255, 0.2);
+  border: 3px solid rgb(24, 67, 175);
+  width: clamp(500px, 80%, 800px);
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.highscore-table th,
+.user-stats-game-table th {
+  background-color: rgba(40, 155, 255, 0.2);
+  font-size: 1.25rem;
+  padding: 15px;
+  border: none;
+}
+
+.highscore-table td,
+.user-stats-game-table td {
+  font-size: 1.15rem;
+  padding: 10px;
+}
+
+/************** Account Stat Page *************/
+
+.user-stats-container {
+  width: clamp(400px, 80%, 600px);
+  margin: auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.user-stats-container h1 {
+  text-decoration: underline;
+  color: rgb(81, 145, 255);
+}
+
+.user-stats-info-style {
+  display: flex;
+  gap: 10px;
+  font-size: 0.75rem;
+  margin: 20px 0;
+}
+
+.user-stats {
+  text-align: center;
+}
+
+.user-stats-game-table {
+  width: 100%;
+}
+
+/*************** Form Table ************/
+
+.form-table h2 {
+  color: rgb(81, 145, 255);
+  margin: 20px 0px;
+}
+
+.form-table {
+  box-shadow: 10px 20px 90px 20px rgba(40, 155, 255, 0.2);
+  border: 3px solid rgb(24, 67, 175);
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+form {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+}
+
+.form-table input {
+  background-color: rgb(170, 201, 255);
+  border-radius: 5px;
+  border: 3px solid rgb(24, 67, 175);
+  margin-bottom: 10px;
+  padding: 3px;
+}
+
+.form-table input:focus {
+  box-shadow: 0px 0px 100px 8px rgba(40, 155, 255, 0.608);
+  outline: 1px solid rgba(115, 188, 252, 0.479);
+}
+
+.form-button {
+  margin: 20px 0px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 3px solid transparent;
+  background-color: rgb(175, 204, 255);
+}
+
+.form-button:hover {
+  cursor: pointer;
+}
+
+.wrong-info {
+  color: red;
+}
+
+/***************** Welcome Message **************/
+.welcome-message {
+  box-shadow: 10px 20px 90px 20px rgba(40, 155, 255, 0.2);
+  border: 3px solid rgb(24, 67, 175);
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.welcome-message h2 {
+  color: rgb(81, 145, 255);
+  margin: 20px 0px;
+}
+
+/***************** Footer **************/
+.copyright {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+}
