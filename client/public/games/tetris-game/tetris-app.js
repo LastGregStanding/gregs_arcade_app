@@ -281,7 +281,22 @@ function gameOver() {
     clearInterval(gameInterval);
     gameStart = false;
     document.querySelector(".game-over-text").classList.remove("text-hidden");
+    sendScoreToReact(score);
   }
+}
+
+// Send data to React when the game is over
+function sendScoreToReact(score) {
+  const origin =
+    new URLSearchParams(window.location.search).get("origin") || "*";
+  window.parent.postMessage(
+    {
+      type: "GAME_OVER",
+      game: "Tetris",
+      score: score,
+    },
+    origin
+  );
 }
 
 // Reset game

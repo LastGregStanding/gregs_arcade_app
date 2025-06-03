@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthProvider";
+import RegisterFormInput from "./RegisterFormInput";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const RegisterForm = () => {
     e.preventDefault();
 
     try {
+      // Register a new user
       const signupResponse = await axios.post(
         "http://localhost:5150/api/auth/register-user",
         formData
@@ -35,6 +37,7 @@ const RegisterForm = () => {
       console.log("Signup successful:", signupResponse);
 
       try {
+        // Immediately log them in after registering
         const loginResponse = await axios.post(
           "http://localhost:5150/api/auth/login",
           {
@@ -53,6 +56,7 @@ const RegisterForm = () => {
     }
   };
 
+  // After user registers account, present a welcome message
   if (loggedIn) {
     return (
       <div className="welcome-message">
@@ -69,38 +73,27 @@ const RegisterForm = () => {
     <div className="form-table">
       <h2>Create an Account</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-input-container">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-input-container">
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-input-container">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <RegisterFormInput
+          formData={formData}
+          handleChange={handleChange}
+          type={"email"}
+          name={"email"}
+          label={"Email"}
+        />
+        <RegisterFormInput
+          formData={formData}
+          handleChange={handleChange}
+          type={"text"}
+          name={"username"}
+          label={"Username"}
+        />
+        <RegisterFormInput
+          formData={formData}
+          handleChange={handleChange}
+          type={"password"}
+          name={"password"}
+          label={"Password"}
+        />
         <button className="form-button" type="submit">
           Register
         </button>

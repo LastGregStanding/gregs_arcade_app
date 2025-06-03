@@ -2,7 +2,7 @@ import { registerUserModel, getUserInfo } from "../models/authModel.mjs";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-// Register a user account
+// Register a new user account
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
@@ -23,19 +23,23 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
+    // Retrieve the ID and password from DB
+    // in order to authenticate the user logging in
     const userInfo = await getUserInfo(username);
 
+    // If the user can't be found in the DB
     if (!userInfo || userInfo.length === 0) {
       return res.status(404).json({ message: "Username not found" });
     }
 
-    // Check the password
+    // Validate the password
     const isMatch = await bcrypt.compare(password, userInfo[0].password_hash);
 
     if (!isMatch) {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
+    // Create a new token for the logged in user
     const token = jwt.sign(
       { id: userInfo[0].id, username: userInfo[0].username },
       process.env.JWT_SECRET,
@@ -45,7 +49,6 @@ const loginUser = async (req, res) => {
     // Set the JWT token as a cookie
     res.cookie("token", token, {
       httpOnly: true,
-      // secure: process.env.NODE_ENV === "production",
       secure: false,
       sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000,
@@ -64,6 +67,7 @@ const authenticateUser = (req, res) => {
 
 // Log the user out
 const logoutUser = (req, res) => {
+  // Get rid of their token
   res.clearCookie("token", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

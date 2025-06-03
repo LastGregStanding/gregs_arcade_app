@@ -95,8 +95,8 @@ document.addEventListener("keydown", function (event) {
 
 // Snake behavior
 function moveSnake() {
-  const newHeadCell = snake[0].cell + horizontalMove + verticalMove * 20; // Move in correct direction
-  snake.unshift({ cell: newHeadCell }); // Add new head
+  const newHeadCell = snake[0].cell + horizontalMove + verticalMove * 20;
+  snake.unshift({ cell: newHeadCell });
 
   // Check if the snake ate food
   if (newHeadCell === food) {
@@ -104,7 +104,7 @@ function moveSnake() {
     scoreText.textContent = score;
     createFood();
   } else {
-    snake.pop(); // Remove tail to keep length same
+    snake.pop();
   }
 }
 //#endregion
@@ -134,10 +134,7 @@ function checkGameOver() {
   // Snake hits the top or bottom of gameboard
   if (snakeHead < 0 || snakeHead > 399) {
     gameOn = false;
-    console.log("Game over!");
-    // userScoreSubmit.textContent = score;
-    // modal.showModal();
-    endGame(score);
+    sendScoreToReact(score);
     return;
   }
 
@@ -147,10 +144,7 @@ function checkGameOver() {
     (horizontalMove === 1 && snakeHead % 20 === 0)
   ) {
     gameOn = false;
-    console.log("Game over!");
-    // userScoreSubmit.textContent = score;
-    // modal.showModal();
-    endGame(score);
+    sendScoreToReact(score);
     return;
   }
 
@@ -158,24 +152,23 @@ function checkGameOver() {
   for (let i = 1; i < snake.length; i++) {
     if (snake[i].cell === snakeHead) {
       gameOn = false;
-      console.log("Game over!");
-      // userScoreSubmit.textContent = score;
-      // modal.showModal();
-      endGame(score);
+      sendScoreToReact(score);
       return;
     }
   }
 }
 
-function endGame(score) {
-  // Send message to parent
+// Send data to React when the game is over
+function sendScoreToReact(score) {
+  const origin =
+    new URLSearchParams(window.location.search).get("origin") || "*";
   window.parent.postMessage(
     {
       type: "GAME_OVER",
       game: "Snake",
       score: score,
     },
-    "*"
+    origin
   );
 }
 
@@ -183,7 +176,7 @@ function endGame(score) {
 document.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
     if (!gameOn) {
-      event.preventDefault(); // Prevent the Enter key from hitting the reset btn.
+      event.preventDefault();
       gameOn = true;
       playGame();
     }

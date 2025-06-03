@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserStatsRow = ({ gameName, highScore, playCount, date }) => {
   return (
     <tr>

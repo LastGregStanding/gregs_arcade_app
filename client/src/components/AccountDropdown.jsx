@@ -1,21 +1,21 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthProvider";
 
 function AccountDropdown() {
   const navigate = useNavigate();
   const { loggedIn, setLoggedIn } = useContext(AuthContext);
 
-  const handleAccountClick = () => {
+  const handleAccountBtnClick = () => {
     navigate(loggedIn ? "/account" : "/register");
   };
 
-  const handleLoginClick = () => {
+  const handleLoginBtnClick = () => {
     navigate("/login");
   };
 
-  const handleLogoutClick = () => {
+  const handleLogoutBtnClick = () => {
     axios
       .post("http://localhost:5150/api/auth/logout", null, {
         withCredentials: true,
@@ -37,17 +37,28 @@ function AccountDropdown() {
           <tbody>
             <tr>
               <td>
-                <button className="navbar-button" onClick={handleAccountClick}>
+                {/* If user logged in, display stats button. Otherwise register button */}
+                <button
+                  className="navbar-button"
+                  onClick={handleAccountBtnClick}
+                >
                   {loggedIn ? "Stats" : "Register"}
                 </button>
               </td>
               <td>
+                {/* Display Log In/Out button depending if user is logged in or not */}
                 {loggedIn ? (
-                  <button onClick={handleLogoutClick} className="navbar-button">
+                  <button
+                    onClick={handleLogoutBtnClick}
+                    className="navbar-button"
+                  >
                     Log Out
                   </button>
                 ) : (
-                  <button onClick={handleLoginClick} className="navbar-button">
+                  <button
+                    onClick={handleLoginBtnClick}
+                    className="navbar-button"
+                  >
                     Log In
                   </button>
                 )}

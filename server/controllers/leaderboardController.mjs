@@ -1,6 +1,8 @@
 import { getStats } from "../models/leaderboardModel.mjs";
 
+// Get the stats for the universal leaderboard
 const getLeaderboardStats = async (req, res) => {
+  // Retrive the name of the game
   const gameTitle = req.params.game;
   try {
     const leaderboardStats = await getStats(gameTitle);

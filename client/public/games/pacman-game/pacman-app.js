@@ -215,6 +215,8 @@ const ghostEncounter = function () {
 
         // If pacman is out of lives
         if (pacmanLives === 0) {
+          // Send the score to React
+          sendScoreToReact(currentScore);
           console.log("Game over!");
         }
         // Pacman loses a life and resets position
@@ -429,6 +431,7 @@ const resetGameOrNextLevel = function () {
 
   // If the game is over
   else {
+    sendScoreToReact(currentScore);
     pacmanLives = 3;
     level = 1;
     currentScore = 0;
@@ -462,5 +465,19 @@ document.addEventListener("keydown", function (key) {
     resetGameOrNextLevel();
   }
 });
+
+// Send data to React when the game is over
+function sendScoreToReact(score) {
+  const origin =
+    new URLSearchParams(window.location.search).get("origin") || "*";
+  window.parent.postMessage(
+    {
+      type: "GAME_OVER",
+      game: "Pacman",
+      score: score,
+    },
+    origin
+  );
+}
 
 // #endregion

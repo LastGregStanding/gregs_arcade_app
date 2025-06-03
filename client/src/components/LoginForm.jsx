@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthProvider";
 
 const LoginForm = () => {
-  const { loggedIn, setLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handlePlayGamesClick = () => {
+    navigate("/");
+  };
+  const { loggedIn, setLoggedIn, refreshUser } = useContext(AuthContext);
   const [wrongInfo, setWrongInfo] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
 
+  // Handle change in the input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -19,9 +25,9 @@ const LoginForm = () => {
     }));
   };
 
+  // Submit the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         "http://localhost:5150/api/auth/login",
@@ -30,17 +36,21 @@ const LoginForm = () => {
       );
       console.log("Login successful:", response);
       setLoggedIn(true);
-      // Optionally reset the form or redirect the user
+      await refreshUser();
     } catch (error) {
       console.error("Error during login:", error);
       setWrongInfo(true);
     }
   };
 
+  // After logging in, be greeted with a welcome back message
   if (loggedIn) {
     return (
       <div className="welcome-message">
         <h2>Welcome back {formData.username}!</h2>
+        <button className="form-button" onClick={handlePlayGamesClick}>
+          Explore Games
+        </button>
       </div>
     );
   }
@@ -49,6 +59,7 @@ const LoginForm = () => {
     <div className="form-table">
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
+        {/* Username input */}
         <div className="form-input-container">
           <label>Username</label>
           <input
@@ -60,6 +71,7 @@ const LoginForm = () => {
           />
         </div>
 
+        {/* Password input */}
         <div className="form-input-container">
           <label>Password</label>
           <input
@@ -70,6 +82,8 @@ const LoginForm = () => {
             required
           />
         </div>
+
+        {/* If the user inputted the wrong credentials */}
         <p className="wrong-info">
           {wrongInfo ? "Wrong username or password" : ""}
         </p>

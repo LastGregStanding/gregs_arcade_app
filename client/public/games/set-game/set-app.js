@@ -895,6 +895,7 @@ function startTimer() {
     if (timeLeft === 0) {
       timer.style.color = "red";
       gameOver = true;
+      sendScoreToReact(score);
       // Redraw the game
       removeGameboard();
       createGameboard();
@@ -934,6 +935,20 @@ startBtn.addEventListener("click", function () {
     startTimer();
   }
 });
+
+// Send data to React when the game is over
+function sendScoreToReact(score) {
+  const origin =
+    new URLSearchParams(window.location.search).get("origin") || "*";
+  window.parent.postMessage(
+    {
+      type: "GAME_OVER",
+      game: "Set",
+      score: score,
+    },
+    origin
+  );
+}
 
 // Clicking the play again button
 resetBtn.addEventListener("click", function () {

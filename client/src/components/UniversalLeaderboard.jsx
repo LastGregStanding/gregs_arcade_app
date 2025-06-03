@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import UniversalStatsRow from "./UniversalStatsRow";
 
@@ -10,6 +10,7 @@ const UniversalLeaderboard = ({ game }) => {
     axios
       .get(`http://localhost:5150/api/leaderboard/${game}`)
       .then((res) => {
+        console.log(res.data);
         setStats(res.data);
       })
       .catch((err) => {
@@ -28,6 +29,8 @@ const UniversalLeaderboard = ({ game }) => {
             <th style={{ width: "15%" }}>Date</th>
           </tr>
         </thead>
+
+        {/* Fill the table with rows */}
         <tbody>
           {stats.map((stat, index) => (
             <UniversalStatsRow key={index} statsObj={stat} ranking={index} />

@@ -6,6 +6,8 @@ const Navbar = () => {
     <header>
       <div className="site-header-container">
         <LeaderboardDropDown />
+
+        {/* Site Logo */}
         <div className="site-logo-container">
           <a href="/">
             <img
@@ -14,6 +16,7 @@ const Navbar = () => {
             />
           </a>
         </div>
+
         <AccountDropdown />
       </div>
     </header>
