@@ -6,15 +6,19 @@ import { dirname } from "path";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
+// Initialize dotenv only once
+dotenv.config();
+
 const app = express();
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:3000")
+  .split(",")
+  .map((origin) => origin.trim());
+
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: allowedOrigins,
   credentials: true,
 };
 app.use(cors(corsOptions));
-
-// Initialize dotenv only once
-dotenv.config();
 
 app.use(express.json());
 
