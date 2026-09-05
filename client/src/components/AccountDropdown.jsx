@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import { API_URL } from "../config/apiUrl";
 
 function AccountDropdown() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function AccountDropdown() {
 
   const handleLogoutBtnClick = () => {
     axios
-      .post("http://localhost:5150/api/auth/logout", null, {
+      .post(`${API_URL}/api/auth/logout`, null, {
         withCredentials: true,
       })
       .then(() => {

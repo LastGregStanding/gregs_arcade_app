@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import { API_URL } from "../config/apiUrl";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -29,11 +30,9 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:5150/api/auth/login",
-        formData,
-        { withCredentials: true }
-      );
+      const response = await axios.post(`${API_URL}/api/auth/login`, formData, {
+        withCredentials: true,
+      });
       console.log("Login successful:", response);
       setLoggedIn(true);
       await refreshUser();

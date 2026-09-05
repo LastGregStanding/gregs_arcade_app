@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import { API_URL } from "../config/apiUrl";
 import RegisterFormInput from "./RegisterFormInput";
 
 const RegisterForm = () => {
@@ -31,20 +32,20 @@ const RegisterForm = () => {
     try {
       // Register a new user
       const signupResponse = await axios.post(
-        "http://localhost:5150/api/auth/register-user",
-        formData
+        `${API_URL}/api/auth/register-user`,
+        formData,
       );
       console.log("Signup successful:", signupResponse);
 
       try {
         // Immediately log them in after registering
         const loginResponse = await axios.post(
-          "http://localhost:5150/api/auth/login",
+          `${API_URL}/api/auth/login`,
           {
             username: formData.username,
             password: formData.password,
           },
-          { withCredentials: true }
+          { withCredentials: true },
         );
         console.log("Login successful:", loginResponse);
         setLoggedIn(true);

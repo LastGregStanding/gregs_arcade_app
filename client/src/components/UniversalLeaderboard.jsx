@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../config/apiUrl";
 import axios from "axios";
 import UniversalStatsRow from "./UniversalStatsRow";
 
@@ -8,7 +9,7 @@ const UniversalLeaderboard = ({ game }) => {
   useEffect(() => {
     // Fetch leaderboard stats
     axios
-      .get(`http://localhost:5150/api/leaderboard/${game}`)
+      .get(`${API_URL}/api/leaderboard/${game}`)
       .then((res) => {
         console.log(res.data);
         setStats(res.data);

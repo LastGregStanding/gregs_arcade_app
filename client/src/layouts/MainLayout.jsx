@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { API_URL } from "../config/apiUrl";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -12,7 +13,7 @@ const MainLayout = () => {
   // Check if user is currently authenticated when the component mounts
   useEffect(() => {
     axios
-      .get("http://localhost:5150/api/auth/me", { withCredentials: true })
+      .get(`${API_URL}/api/auth/me`, { withCredentials: true })
       .then((res) => {
         console.log("Auth check success:", res.data);
         setLoggedIn(true);

@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthProvider";
+import { API_URL } from "../config/apiUrl";
 import UserStatsTable from "../components/UserStatsTable";
 
 const AccountPage = () => {
@@ -10,7 +11,7 @@ const AccountPage = () => {
   useEffect(() => {
     // Fetch user stats
     axios
-      .get("http://localhost:5150/api/user/table-stats", {
+      .get(`${API_URL}/api/user/table-stats`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -25,7 +26,7 @@ const AccountPage = () => {
   // Calculate which game the user played the most
   const mostPlayedGame = stats.length
     ? stats.reduce((max, game) =>
-        game.play_count > max.play_count ? game : max
+        game.play_count > max.play_count ? game : max,
       )
     : null;
 

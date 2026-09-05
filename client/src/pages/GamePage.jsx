@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthProvider";
+import { API_URL } from "../config/apiUrl";
 import ScoreModal from "../components/ScoreModal";
 
 const GamePage = () => {
@@ -16,7 +17,7 @@ const GamePage = () => {
   // Fetch user highscore for the specific game
   useEffect(() => {
     axios
-      .get(`http://localhost:5150/api/user/game-stats?gameName=${gameName}`, {
+      .get(`${API_URL}/api/user/game-stats?gameName=${gameName}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -45,13 +46,13 @@ const GamePage = () => {
         // Game over, send data to database
         axios
           .post(
-            `http://localhost:5150/api/user/new-highscore?gameName=${gameName}`,
+            `${API_URL}/api/user/new-highscore?gameName=${gameName}`,
             {
               gameName,
               playCount: stats.play_count,
               score: event.data.score,
             },
-            { withCredentials: true }
+            { withCredentials: true },
           )
           .then(() => {
             console.log("Score submitted successfully");
