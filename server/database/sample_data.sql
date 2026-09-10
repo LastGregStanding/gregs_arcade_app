@@ -21,7 +21,7 @@ VALUES
 ------ Game Data -------
 ---------------------------------------------------
 
-REPLACE INTO game_data (user_id, game_name, play_count, high_score, high_score_date) VALUES
+INSERT INTO game_data (user_id, game_name, play_count, high_score, high_score_date) VALUES
 -- User 1
 (1, 'Tetris', 2, 60, '2025-05-23'),
 (1, 'Snake', 1, 2, '2025-05-24'),
@@ -100,4 +100,8 @@ REPLACE INTO game_data (user_id, game_name, play_count, high_score, high_score_d
 (10, 'Pong', 5, NULL, NULL),
 (10, 'Pacman', 14, 3800, '2025-02-15'),
 (10, 'Set', 7, 5, '2025-02-11'),
-(10, 'Yahtzee', 3, NULL, NULL),
+(10, 'Yahtzee', 3, NULL, NULL)
+ON CONFLICT (user_id, game_name) DO UPDATE SET
+  play_count = EXCLUDED.play_count,
+  high_score = EXCLUDED.high_score,
+  high_score_date = EXCLUDED.high_score_date;
