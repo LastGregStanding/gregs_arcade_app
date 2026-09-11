@@ -128,7 +128,7 @@ BEGIN
         game_data.high_score_date
     FROM game_data
     WHERE user_id = p_user_id
-      AND game_name = p_game_name;
+      AND LOWER(game_name) = LOWER(p_game_name);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -148,7 +148,7 @@ BEGIN
     -- Get the current high score
     SELECT high_score INTO current_score
     FROM game_data
-    WHERE user_id = p_user_id AND game_name = p_game_name;
+    WHERE user_id = p_user_id AND LOWER(game_name) = LOWER(p_game_name);
 
     UPDATE game_data
     SET
@@ -165,7 +165,7 @@ BEGIN
             WHEN p_new_score > current_score THEN CURRENT_DATE
             ELSE high_score_date
         END
-    WHERE user_id = p_user_id AND game_name = p_game_name;
+    WHERE user_id = p_user_id AND LOWER(game_name) = LOWER(p_game_name);
 END;
 $$ LANGUAGE plpgsql;
 
@@ -187,7 +187,7 @@ BEGIN
         g.high_score_date
     FROM game_data g
     JOIN users u ON g.user_id = u.id
-    WHERE g.game_name = p_game_name
+    WHERE LOWER(g.game_name) = LOWER(p_game_name)
     ORDER BY g.high_score DESC
     LIMIT 10;
 END;
