@@ -1,6 +1,17 @@
 node_modules
-npm-debug.log
-.env
 .git
 .gitignore
 .DS_Store
+*.log
+coverage
+README.md
+
+# Secrets: pass at run time, never bake into the image
+.env
+.env.*
+!.env.example
+
+# Not needed in the image; excluding them also keeps edits from busting the build cache
+Dockerfile
+.dockerignore
+docker-compose*.yml
